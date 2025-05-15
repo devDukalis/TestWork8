@@ -1,0 +1,100 @@
+.container {
+  min-height: 100vh;
+}
+
+.nav {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+
+  &Link {
+    color: #2c3e50;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    position: relative;
+
+    &:hover {
+      color: #3498db;
+      transform: translateY(-1px);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #3498db;
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+.errorContent {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.errorTitle {
+  color: #e74c3c;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.errorMessage {
+  color: #2c3e50;
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.resetButton {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 0.75rem;
+
+    &Link {
+      font-size: 0.9rem;
+    }
+  }
+
+  .errorContent {
+    padding: 1.5rem;
+  }
+
+  .errorTitle {
+    font-size: 1.25rem;
+  }
+}

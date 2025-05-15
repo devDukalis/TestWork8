@@ -1,0 +1,56 @@
+.container {
+  min-height: 100vh;
+}
+
+.nav {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+
+  &Link {
+    color: #2c3e50;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    position: relative;
+
+    &:hover {
+      color: #3498db;
+      transform: translateY(-1px);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #3498db;
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      color: #95a5a6;
+      cursor: not-allowed;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 0.75rem;
+
+    &Link {
+      font-size: 0.9rem;
+    }
+  }
+}

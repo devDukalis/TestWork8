@@ -7,12 +7,14 @@ import { weatherApi } from "@/services/weather";
 import { useFavorites } from "@/stores/useFavorites";
 import { SearchForm } from "@/components/SearchForm";
 import { WeatherCard } from "@/components/WeatherCard";
-import { Space } from "@/components/Space";
 
 import { Weather } from "@/models";
 import { capitalizeFirstLetter } from "@/utils";
 
-function Home() {
+import "@/scss/globals.scss";
+import styles from "@/app/Home.module.scss";
+
+function HomePage() {
   const [weather, setWeather] = useState<Weather | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -21,6 +23,7 @@ function Home() {
   const handleSearch = useCallback(async (city: string) => {
     if (!city.trim()) {
       setWeather(null);
+      setError("");
       return;
     }
 
@@ -41,47 +44,62 @@ function Home() {
 
   const isFavorite = favorites.some((f) => f.name === weather?.name);
 
+  const forecastLink = weather?.name
+    ? `/forecast/${encodeURIComponent(weather.name)}`
+    : "";
+
   return (
-    <div>
-      <nav>
-        <Link href={`/`}>Main</Link>
-        <Space />
-        <Link href={`/favorites/`}>Favorite cities</Link>
-        <Space />
-        <Link
-          href={`/forecast/${weather?.name || ""}`}
-          style={{
-            pointerEvents: weather ? "auto" : "none",
-            opacity: weather ? 1 : 0.5,
-          }}
-          aria-disabled={!weather}
-        >
-          Forecast for 5 days
-        </Link>
+    <div className={`container py-4 ${styles.container}`}>
+      <nav className={`${styles.nav} shadow-sm mb-4`}>
+        <div className="d-flex gap-3 flex-wrap">
+          <Link href="/" className={`${styles.navLink} nav-link`}>
+            Main
+          </Link>
+          <Link href="/favorites/" className={`${styles.navLink} nav-link`}>
+            Favorite Cities
+          </Link>
+          <Link
+            href={forecastLink}
+            className={`${styles.navLink} nav-link ${
+              !weather ? styles.disabled : ""
+            }`}
+            aria-disabled={!weather}
+          >
+            5-Day Forecast
+          </Link>
+        </div>
       </nav>
 
-      <SearchForm onSearch={handleSearch} loading={loading} />
+      <div className="row justify-content-center">
+        <SearchForm onSearch={handleSearch} loading={loading} />
+      </div>
 
-      {error && <div>{error}</div>}
+      {error && (
+        <div className="alert alert-danger mt-4 text-center">{error}</div>
+      )}
 
       {weather && (
-        <WeatherCard
-          weather={weather}
-          onAddFavorite={() => {
-            if (isFavorite) {
-              removeFavorite(weather.name);
-            } else {
-              addFavorite({
-                name: weather.name,
-                country: weather.sys.country,
-              });
-            }
-          }}
-          isFavorite={isFavorite}
-        />
+        <div className="row justify-content-center mt-4">
+          <div className="col-md-8 col-lg-6">
+            <WeatherCard
+              weather={weather}
+              onAddFavorite={() => {
+                if (isFavorite) {
+                  removeFavorite(weather.name);
+                } else {
+                  addFavorite({
+                    name: weather.name,
+                    country: weather.sys.country,
+                  });
+                }
+              }}
+              isFavorite={isFavorite}
+            />
+          </div>
+        </div>
       )}
     </div>
   );
 }
 
-export default Home;
+export default HomePage;

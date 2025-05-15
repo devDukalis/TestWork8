@@ -1,3 +1,5 @@
+import { AppErrorBoundary } from "@/components/AppErrorBoundary";
+
 function RootLayout({
   children,
 }: Readonly<{
@@ -5,7 +7,9 @@ function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <AppErrorBoundary>{children}</AppErrorBoundary>
+      </body>
     </html>
   );
 }
