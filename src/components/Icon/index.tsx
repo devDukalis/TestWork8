@@ -6,6 +6,9 @@ interface Props {
   height?: number | string;
   pathD: string;
   viewBox?: string;
+  fill?: string;
+  stroke?: string;
+  strokeWidth?: string;
 }
 
 export const Icon: FC<Props> = ({
@@ -14,15 +17,20 @@ export const Icon: FC<Props> = ({
   height = 24,
   pathD,
   viewBox = "0 0 16 16",
+  fill = "currentColor",
+  stroke,
+  strokeWidth,
 }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
-      fill="currentColor"
+      fill={fill}
       className={className}
       viewBox={viewBox}
+      stroke={stroke}
+      strokeWidth={strokeWidth}
     >
       <path d={pathD} />
     </svg>
