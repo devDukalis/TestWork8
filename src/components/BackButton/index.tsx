@@ -12,10 +12,7 @@ interface Props {
 export const BackButton: FC<Props> = ({ value }) => {
   const router = useRouter();
   return (
-    <button
-      onClick={() => router.back()}
-      className={`${styles.backButton} btn`}
-    >
+    <button onClick={() => router.back()} className={`${styles.backButton}`}>
       <BackToMainIcon />
       {value}
     </button>
