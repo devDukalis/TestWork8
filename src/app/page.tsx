@@ -7,8 +7,8 @@ import { useFavorites } from "@/stores/useFavorites";
 
 import { SearchForm } from "@/components/SearchForm";
 import { WeatherCard } from "@/components/WeatherCard";
-import { NavBar } from "@components//NavBar";
-import { ErrorAlert } from "@components//ErrorAlert";
+import { NavBar } from "@/components/NavBar";
+import { ErrorAlert } from "@/components/ErrorAlert";
 
 import { weatherApi } from "@/services/weather";
 import { Weather } from "@/models";

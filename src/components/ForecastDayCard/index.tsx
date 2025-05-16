@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { ForecastItem } from "@/models";
 
+import { ForecastItem } from "@/models";
 import styles from "@/components/ForecastDayCard/ForecastDayCard.module.scss";
 
 interface ForecastDayCardProps {
