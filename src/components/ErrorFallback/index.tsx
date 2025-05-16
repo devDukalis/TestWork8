@@ -3,7 +3,7 @@
 import { type FC } from "react";
 import { type FallbackProps } from "react-error-boundary";
 
-import styles from "./ErrorFallback.module.scss";
+import styles from "@/components/ErrorFallback/ErrorFallback.module.scss";
 
 export const ErrorFallback: FC<FallbackProps> = ({
   error,

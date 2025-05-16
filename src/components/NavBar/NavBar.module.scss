@@ -1,0 +1,7 @@
+@use "../../scss/abstracts/variables";
+
+.nav {
+  background: variables.$white;
+  padding: 1rem;
+  border-radius: variables.$border-radius-section;
+}

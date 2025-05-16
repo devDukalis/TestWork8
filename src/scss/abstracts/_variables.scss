@@ -1,0 +1,41 @@
+// Colors
+$primary-color: #3498db;
+$secondary-color: #2c3e50;
+$danger-color: #e74c3c;
+$text-dark: #2c3e50;
+$text-gray: #7f8c8d;
+$text-light: #95a5a6;
+$background-light: #f8f9fa;
+$white: #ffffff;
+$hover-red: #f8d7da;
+$border-gray: #f0f0f0;
+$button-hover: #2980b9;
+
+// Typography
+$font-weight-bold: 700;
+$font-weight-semi-bold: 600;
+$font-weight-medium: 500;
+$font-size-lg: 1.5rem;
+$font-size-md: 1.1rem;
+$font-size-sm: 0.9rem;
+
+// Border radius
+$border-radius-card: 15px;
+$border-radius-section: 12px;
+$border-radius-element: 10px;
+$border-radius-small: 8px;
+$border-radius-circle: 50%;
+
+// Shadows
+$shadow-card: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-element: 0 2px 8px rgba(0, 0, 0, 0.1);
+$shadow-small: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+// Transitions
+$transition-duration: 0.3s;
+$transition-timing: ease;
+
+// Breakpoints
+$breakpoint-md: 768px;
+$breakpoint-sm: 576px;
+$breakpoint-xs: 480px;

@@ -1,0 +1,22 @@
+@use "../../scss/abstracts/variables";
+
+.backButton {
+  color: variables.$text-dark;
+  font-weight: variables.$font-weight-medium;
+  transition: all 0.2s variables.$transition-timing;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  background: none;
+  padding: 0;
+
+  &:hover {
+    color: #3498db;
+    transform: translateX(-3px);
+  }
+
+  svg {
+    transition: transform 0.2s variables.$transition-timing;
+  }
+}

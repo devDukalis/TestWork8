@@ -1,0 +1,31 @@
+@use "../../scss/abstracts/variables";
+
+.title {
+  color: variables.$text-dark;
+  font-weight: variables.$font-weight-bold;
+  position: relative;
+  padding-bottom: 1rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: variables.$primary-color;
+    border-radius: 2px;
+  }
+}
+
+@media (max-width: variables.$breakpoint-md) {
+  .title {
+    font-size: 1.8rem;
+
+    &::after {
+      width: 40px;
+      height: 2px;
+    }
+  }
+}

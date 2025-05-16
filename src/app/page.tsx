@@ -3,11 +3,14 @@
 import { useState, useCallback } from "react";
 import axios from "axios";
 import Link from "next/link";
-import { weatherApi } from "@/services/weather";
 import { useFavorites } from "@/stores/useFavorites";
+
 import { SearchForm } from "@/components/SearchForm";
 import { WeatherCard } from "@/components/WeatherCard";
+import { NavBar } from "@components//NavBar";
+import { ErrorAlert } from "@components//ErrorAlert";
 
+import { weatherApi } from "@/services/weather";
 import { Weather } from "@/models";
 import { capitalizeFirstLetter } from "@/utils";
 
@@ -28,14 +31,17 @@ function HomePage() {
     }
 
     setLoading(true);
+
     try {
       const response = await weatherApi.getCurrent(city);
       setWeather(response.data);
+
       setError("");
     } catch (err) {
       const errorMessage = axios.isAxiosError(err)
         ? err.response?.data.message || "Request error"
         : "Unknown error";
+
       setError(capitalizeFirstLetter(errorMessage));
     } finally {
       setLoading(false);
@@ -50,33 +56,29 @@ function HomePage() {
 
   return (
     <div className={`container py-4 ${styles.container}`}>
-      <nav className={`${styles.nav} shadow-sm mb-4`}>
-        <div className="d-flex gap-3 flex-wrap">
-          <Link href="/" className={`${styles.navLink} nav-link`}>
-            Main
-          </Link>
-          <Link href="/favorites/" className={`${styles.navLink} nav-link`}>
-            Favorite Cities
-          </Link>
-          <Link
-            href={forecastLink}
-            className={`${styles.navLink} nav-link ${
-              !weather ? styles.disabled : ""
-            }`}
-            aria-disabled={!weather}
-          >
-            5-Day Forecast
-          </Link>
-        </div>
-      </nav>
+      <NavBar>
+        <Link href="/" className={`${styles.navLink} nav-link`}>
+          Main
+        </Link>
+        <Link href="/favorites/" className={`${styles.navLink} nav-link`}>
+          Favorite Cities
+        </Link>
+        <Link
+          href={forecastLink}
+          className={`${styles.navLink} nav-link ${
+            !weather ? styles.disabled : ""
+          }`}
+          aria-disabled={!weather}
+        >
+          5-Day Forecast
+        </Link>
+      </NavBar>
 
       <div className="row justify-content-center">
         <SearchForm onSearch={handleSearch} loading={loading} />
       </div>
 
-      {error && (
-        <div className="alert alert-danger mt-4 text-center">{error}</div>
-      )}
+      {error && <ErrorAlert message={error} />}
 
       {weather && (
         <div className="row justify-content-center mt-4">

@@ -1,0 +1,91 @@
+@use "../../scss/abstracts/variables";
+
+.forecastCard {
+  border: none;
+  border-radius: variables.$border-radius-card;
+  transition: transform variables.$transition-duration
+    variables.$transition-timing;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.dayTitle {
+  color: variables.$text-gray;
+  font-weight: variables.$font-weight-semi-bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.temperatureWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.tempItem {
+  text-align: center;
+}
+
+.tempLabel {
+  display: block;
+  color: variables.$text-light;
+  font-size: variables.$font-size-sm;
+  margin-bottom: 0.3rem;
+}
+
+.tempValue {
+  display: block;
+  color: variables.$text-dark;
+  font-size: variables.$font-size-lg;
+  font-weight: variables.$font-weight-bold;
+}
+
+.timeSlot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: variables.$border-radius-small;
+  background: variables.$background-light;
+  width: 80px;
+}
+
+.time {
+  font-size: 0.8rem;
+  color: variables.$text-gray;
+  margin-bottom: 0.3rem;
+}
+
+.temp {
+  font-size: variables.$font-size-sm;
+  font-weight: variables.$font-weight-medium;
+  color: variables.$text-dark;
+}
+
+.weatherIcon {
+  filter: drop-shadow(variables.$shadow-small);
+}
+
+@media (max-width: variables.$breakpoint-md) {
+  .temperatureWrapper {
+    gap: 1rem;
+  }
+
+  .tempValue {
+    font-size: 1.3rem;
+  }
+
+  .timeSlot {
+    width: 70px;
+    padding: 0.3rem;
+  }
+}
+
+@media (max-width: variables.$breakpoint-sm) {
+  .dayTitle {
+    font-size: 1.1rem;
+  }
+}

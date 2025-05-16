@@ -1,20 +1,22 @@
+@use "../scss/abstracts/variables";
+
 .container {
   min-height: 100vh;
 }
 
 .nav {
-  background: #ffffff;
+  background: variables.$white;
   padding: 1rem;
-  border-radius: 12px;
+  border-radius: variables.$border-radius-section;
 
   &Link {
-    color: #2c3e50;
-    font-weight: 500;
-    transition: all 0.2s ease;
+    color: variables.$text-dark;
+    font-weight: variables.$font-weight-medium;
+    transition: all 0.2s variables.$transition-timing;
     position: relative;
 
     &:hover {
-      color: #3498db;
+      color: variables.$primary-color;
       transform: translateY(-1px);
     }
 
@@ -25,8 +27,9 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: #3498db;
-      transition: width 0.3s ease;
+      background: variables.$primary-color;
+      transition: width variables.$transition-duration
+        variables.$transition-timing;
     }
 
     &:hover::after {
@@ -35,7 +38,7 @@
 
     &.disabled {
       pointer-events: none;
-      color: #95a5a6;
+      color: variables.$text-light;
       cursor: not-allowed;
 
       &::after {
@@ -45,12 +48,12 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: variables.$breakpoint-md) {
   .nav {
     padding: 0.75rem;
 
     &Link {
-      font-size: 0.9rem;
+      font-size: variables.$font-size-sm;
     }
   }
 }

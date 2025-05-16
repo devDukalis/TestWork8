@@ -1,8 +1,9 @@
 import { type FC } from "react";
 import Image from "next/image";
-import styles from "./WeatherCard.module.scss";
+
 import { Weather } from "@/models";
 import { capitalizeFirstLetter } from "@/utils";
+import styles from "@/components/WeatherCard/WeatherCard.module.scss";
 
 interface Props {
   weather: Weather;

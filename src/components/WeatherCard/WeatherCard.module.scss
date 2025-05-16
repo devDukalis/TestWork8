@@ -1,7 +1,10 @@
+@use "../../scss/abstracts/variables";
+
 .card {
   border: none;
-  border-radius: 15px;
-  transition: transform 0.3s ease;
+  border-radius: variables.$border-radius-card;
+  transition: transform variables.$transition-duration
+    variables.$transition-timing;
 
   &:hover {
     transform: translateY(-5px);
@@ -9,47 +12,47 @@
 }
 
 .city {
-  color: #2c3e50;
-  font-weight: 700;
-  font-size: 1.5rem;
+  color: variables.$text-dark;
+  font-weight: variables.$font-weight-bold;
+  font-size: variables.$font-size-lg;
 }
 
 .favoriteBtn {
   padding: 0.5rem;
-  border-radius: 50%;
-  transition: all 0.3s ease;
+  border-radius: variables.$border-radius-circle;
+  transition: all variables.$transition-duration variables.$transition-timing;
 
   &:hover {
-    background-color: #f8d7da;
+    background-color: variables.$hover-red;
     transform: scale(1.1);
   }
 
   &.active {
     svg {
-      animation: pulse 0.5s ease;
+      animation: pulse 0.5s variables.$transition-timing;
     }
   }
 }
 
 .weatherIcon {
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(variables.$shadow-small);
 }
 
 .temperature {
-  color: #3498db;
-  font-weight: 700;
+  color: variables.$primary-color;
+  font-weight: variables.$font-weight-bold;
   margin-bottom: 0.5rem;
 }
 
 .description {
-  color: #7f8c8d;
-  font-size: 1.1rem;
+  color: variables.$text-gray;
+  font-size: variables.$font-size-md;
   text-transform: capitalize;
 }
 
 .details {
-  background-color: #f8f9fa;
-  border-radius: 10px;
+  background-color: variables.$background-light;
+  border-radius: variables.$border-radius-element;
   padding: 1rem;
   margin-top: 1rem;
 }
@@ -62,13 +65,13 @@
 }
 
 .label {
-  color: #95a5a6;
-  font-weight: 500;
+  color: variables.$text-light;
+  font-weight: variables.$font-weight-medium;
 }
 
 .value {
-  color: #2c3e50;
-  font-weight: 600;
+  color: variables.$text-dark;
+  font-weight: variables.$font-weight-semi-bold;
 }
 
 @keyframes pulse {
@@ -83,7 +86,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: variables.$breakpoint-md) {
   .city {
     font-size: 1.2rem;
   }
