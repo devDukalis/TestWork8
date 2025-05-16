@@ -5,5 +5,9 @@ interface Props {
 }
 
 export const NoFavoriteCitiesMessage: FC<Props> = ({ value }) => {
-  return <p className="mt-3 mb-0">{value}</p>;
+  return (
+    <p className="mt-3 mb-0" aria-live="polite">
+      {value}
+    </p>
+  );
 };

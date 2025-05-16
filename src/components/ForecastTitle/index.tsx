@@ -8,7 +8,10 @@ interface Props {
 }
 
 export const ForecastTitle: FC<Props> = ({ city, value }) => (
-  <h2 className={`text-center mb-5 ${styles.title || ""}`}>
+  <h2
+    className={`text-center mb-5 ${styles.title || ""}`}
+    aria-label={`${value} for ${city}`}
+  >
     {value} {city}
   </h2>
 );

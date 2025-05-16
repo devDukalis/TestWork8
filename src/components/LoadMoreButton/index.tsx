@@ -1,3 +1,5 @@
+"use client";
+
 import { type FC } from "react";
 
 interface Props {
@@ -7,7 +9,7 @@ interface Props {
 
 export const LoadMoreButton: FC<Props> = ({ handleClick, value }) => {
   return (
-    <button onClick={handleClick} className="btn btn-primary">
+    <button onClick={handleClick} className="btn btn-primary" type="button">
       {value}
     </button>
   );

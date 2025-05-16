@@ -1,3 +1,5 @@
+"use client";
+
 import { type FC } from "react";
 
 interface Props {
@@ -9,6 +11,7 @@ interface Props {
   fill?: string;
   stroke?: string;
   strokeWidth?: string;
+  ariaHidden?: boolean;
 }
 
 export const Icon: FC<Props> = ({
@@ -20,6 +23,7 @@ export const Icon: FC<Props> = ({
   fill = "currentColor",
   stroke,
   strokeWidth,
+  ariaHidden = true,
 }) => {
   return (
     <svg
@@ -31,6 +35,8 @@ export const Icon: FC<Props> = ({
       viewBox={viewBox}
       stroke={stroke}
       strokeWidth={strokeWidth}
+      aria-hidden={ariaHidden}
+      focusable="false"
     >
       <path d={pathD} />
     </svg>

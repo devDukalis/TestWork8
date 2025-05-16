@@ -1,3 +1,5 @@
+"use client";
+
 import { type FC } from "react";
 import { useRouter } from "next/navigation";
 
@@ -12,7 +14,12 @@ interface Props {
 export const BackButton: FC<Props> = ({ value }) => {
   const router = useRouter();
   return (
-    <button onClick={() => router.back()} className={`${styles.backButton}`}>
+    <button
+      onClick={() => router.back()}
+      className={`${styles.backButton}`}
+      aria-label={`Go back to ${value}`}
+      type="button"
+    >
       <Icon
         width={20}
         height={20}

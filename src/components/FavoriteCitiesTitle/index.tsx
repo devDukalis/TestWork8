@@ -7,5 +7,13 @@ interface Props {
 }
 
 export const FavoriteCitiesTitle: FC<Props> = ({ value }) => {
-  return <h2 className={`text-center mb-5 ${styles.title}`}>{value}</h2>;
+  return (
+    <h2
+      className={`text-center mb-5 ${styles.title}`}
+      role="heading"
+      aria-level={2}
+    >
+      {value}
+    </h2>
+  );
 };
